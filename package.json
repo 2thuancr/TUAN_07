@@ -2,6 +2,7 @@
   "name": "react-shopping-cart-library",
   "version": "1.0.0",
   "description": "A React library for shopping cart functionality with reusable UI components",
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -22,7 +23,7 @@
     "ui-components",
     "typescript"
   ],
-  "author": "Your Name",
+  "author": "Student Name",
   "license": "MIT",
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -32,24 +33,30 @@
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.0.0",
     "@rollup/plugin-typescript": "^11.0.0",
+    "@tailwindcss/postcss": "^4.1.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "autoprefixer": "^10.4.21",
     "eslint": "^8.0.0",
     "eslint-plugin-react": "^7.0.0",
     "eslint-plugin-react-hooks": "^4.0.0",
+    "postcss": "^8.5.6",
     "rollup": "^3.0.0",
     "rollup-plugin-dts": "^5.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tailwindcss": "^4.1.13",
+    "tslib": "^2.8.1",
     "typescript": "^5.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/react-shopping-cart-library.git"
+    "url": "https://github.com/student/react-shopping-cart-library.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/react-shopping-cart-library/issues"
+    "url": "https://github.com/student/react-shopping-cart-library/issues"
   },
-  "homepage": "https://github.com/yourusername/react-shopping-cart-library#readme"
+  "homepage": "https://github.com/student/react-shopping-cart-library#readme"
 }

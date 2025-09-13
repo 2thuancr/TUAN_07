@@ -1,38 +1,24 @@
 # React Shopping Cart Library
 
-Thư viện React cho chức năng giỏ hàng với các component UI tái sử dụng.
+A comprehensive React library for shopping cart functionality with reusable UI components built with TypeScript and Tailwind CSS.
 
-## Tính năng
+## 🚀 Features
 
-- 🛒 Quản lý giỏ hàng đầy đủ (thêm, sửa, xóa sản phẩm)
-- 🎨 Các component UI chuẩn hóa (Button, Input, Modal, Card)
-- 📱 Responsive design
-- 🎯 TypeScript support
-- 🎨 Tailwind CSS styling
-- 🔧 Customizable và dễ sử dụng
+- **Complete Shopping Cart Management**: Add, edit, remove, and clear cart items
+- **Reusable UI Components**: Button, Card, Input, Modal components
+- **TypeScript Support**: Full type definitions for all components
+- **Custom Hook**: `useShoppingCart` for easy state management
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Vietnamese Localization**: Built-in Vietnamese text support
+- **Modern UI**: Clean, accessible, and user-friendly interface
 
-## Cài đặt
+## 📦 Installation
 
 ```bash
 npm install react-shopping-cart-library
 ```
 
-## Sử dụng
-
-### Import các component
-
-```tsx
-import { 
-  ShoppingCart, 
-  useShoppingCart, 
-  Button, 
-  Input, 
-  Modal, 
-  Card 
-} from 'react-shopping-cart-library';
-```
-
-### Sử dụng ShoppingCart
+## 🎯 Quick Start
 
 ```tsx
 import React from 'react';
@@ -43,20 +29,22 @@ function App() {
 
   const handleCheckout = () => {
     console.log('Checkout:', cart);
-    // Xử lý thanh toán
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <ShoppingCart
-        items={cart.items}
-        onAddItem={addItem}
-        onUpdateItem={updateItem}
-        onRemoveItem={removeItem}
-        onClearCart={clearCart}
-        onCheckout={handleCheckout}
-        showCheckout={true}
-      />
+    <div className="min-h-screen bg-gray-100 py-8">
+      <div className="container mx-auto px-4">
+        <ShoppingCart
+          items={cart.items}
+          onAddItem={addItem}
+          onUpdateItem={updateItem}
+          onRemoveItem={removeItem}
+          onClearCart={clearCart}
+          onCheckout={handleCheckout}
+          showCheckout={true}
+          className="max-w-4xl mx-auto"
+        />
+      </div>
     </div>
   );
 }
@@ -64,64 +52,127 @@ function App() {
 export default App;
 ```
 
-### Sử dụng các component riêng lẻ
+## 🧩 Components
+
+### ShoppingCart
+
+The main shopping cart component with full CRUD functionality.
 
 ```tsx
-import React, { useState } from 'react';
-import { Button, Input, Modal, Card } from 'react-shopping-cart-library';
-
-function MyComponent() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  return (
-    <div>
-      <Card title="Sản phẩm" subtitle="Mô tả sản phẩm">
-        <p>Nội dung sản phẩm</p>
-      </Card>
-      
-      <Button 
-        variant="primary" 
-        size="medium"
-        onClick={() => setIsModalOpen(true)}
-      >
-        Mở Modal
-      </Button>
-      
-      <Input
-        label="Tên sản phẩm"
-        placeholder="Nhập tên sản phẩm"
-        value=""
-        onChange={(value) => console.log(value)}
-      />
-      
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title="Modal Title"
-      >
-        <p>Nội dung modal</p>
-      </Modal>
-    </div>
-  );
-}
+<ShoppingCart
+  items={cart.items}
+  onAddItem={addItem}
+  onUpdateItem={updateItem}
+  onRemoveItem={removeItem}
+  onClearCart={clearCart}
+  onCheckout={handleCheckout}
+  showCheckout={true}
+  className="custom-class"
+/>
 ```
 
-## API Reference
+**Props:**
+- `items`: Array of cart items
+- `onAddItem`: Function to add new item
+- `onUpdateItem`: Function to update existing item
+- `onRemoveItem`: Function to remove item
+- `onClearCart`: Function to clear all items
+- `onCheckout`: Function called on checkout
+- `showCheckout`: Boolean to show/hide checkout button
+- `className`: Additional CSS classes
 
-### ShoppingCart Props
+### Button
 
-| Prop | Type | Default | Mô tả |
-|------|------|---------|-------|
-| items | CartItem[] | - | Danh sách sản phẩm trong giỏ hàng |
-| onAddItem | (item: Omit<CartItem, 'id'>) => void | - | Callback khi thêm sản phẩm |
-| onUpdateItem | (id: string, updates: Partial<CartItem>) => void | - | Callback khi cập nhật sản phẩm |
-| onRemoveItem | (id: string) => void | - | Callback khi xóa sản phẩm |
-| onClearCart | () => void | - | Callback khi xóa tất cả |
-| className | string | '' | CSS class tùy chỉnh |
-| showCheckout | boolean | true | Hiển thị nút thanh toán |
-| onCheckout | () => void | - | Callback khi thanh toán |
+Reusable button component with multiple variants and sizes.
 
-### CartItem Interface
+```tsx
+<Button
+  variant="primary"
+  size="medium"
+  onClick={handleClick}
+  disabled={false}
+>
+  Click me
+</Button>
+```
+
+**Props:**
+- `variant`: 'primary' | 'secondary' | 'danger' | 'success'
+- `size`: 'small' | 'medium' | 'large'
+- `disabled`: boolean
+- `onClick`: click handler
+- `type`: 'button' | 'submit' | 'reset'
+
+### Card
+
+Flexible card component for displaying content.
+
+```tsx
+<Card
+  title="Card Title"
+  subtitle="Card Subtitle"
+  image="image-url"
+  onClick={handleClick}
+>
+  Card content
+</Card>
+```
+
+### Input
+
+Form input component with validation support.
+
+```tsx
+<Input
+  type="text"
+  label="Name"
+  placeholder="Enter your name"
+  value={value}
+  onChange={setValue}
+  required
+  error={errorMessage}
+/>
+```
+
+### Modal
+
+Modal component with backdrop and keyboard support.
+
+```tsx
+<Modal
+  isOpen={isOpen}
+  onClose={handleClose}
+  title="Modal Title"
+  size="medium"
+>
+  Modal content
+</Modal>
+```
+
+## 🎣 Hooks
+
+### useShoppingCart
+
+Custom hook for managing shopping cart state.
+
+```tsx
+const {
+  cart,
+  addItem,
+  updateItem,
+  removeItem,
+  clearCart
+} = useShoppingCart(initialItems);
+```
+
+**Returns:**
+- `cart`: Cart object with items, total, and itemCount
+- `addItem`: Function to add new item
+- `updateItem`: Function to update existing item
+- `removeItem`: Function to remove item
+- `clearCart`: Function to clear all items
+
+## 📝 Types
 
 ```tsx
 interface CartItem {
@@ -132,46 +183,63 @@ interface CartItem {
   image?: string;
   description?: string;
 }
+
+interface Cart {
+  items: CartItem[];
+  total: number;
+  itemCount: number;
+}
 ```
 
-### Button Props
+## 🎨 Styling
 
-| Prop | Type | Default | Mô tả |
-|------|------|---------|-------|
-| children | React.ReactNode | - | Nội dung button |
-| onClick | () => void | - | Callback khi click |
-| variant | 'primary' \| 'secondary' \| 'danger' \| 'success' | 'primary' | Kiểu button |
-| size | 'small' \| 'medium' \| 'large' | 'medium' | Kích thước button |
-| disabled | boolean | false | Vô hiệu hóa button |
-| className | string | '' | CSS class tùy chỉnh |
-| type | 'button' \| 'submit' \| 'reset' | 'button' | Loại button |
+This library uses Tailwind CSS for styling. Make sure to include Tailwind CSS in your project:
 
-### Input Props
+```bash
+npm install tailwindcss
+```
 
-| Prop | Type | Default | Mô tả |
-|------|------|---------|-------|
-| type | 'text' \| 'email' \| 'password' \| 'number' | 'text' | Loại input |
-| placeholder | string | - | Placeholder text |
-| value | string \| number | - | Giá trị input |
-| onChange | (value: string) => void | - | Callback khi thay đổi |
-| disabled | boolean | false | Vô hiệu hóa input |
-| className | string | '' | CSS class tùy chỉnh |
-| label | string | - | Label cho input |
-| error | string | - | Thông báo lỗi |
-| required | boolean | false | Bắt buộc nhập |
+Add to your CSS:
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-## Styling
+## 📱 Responsive Design
 
-Thư viện sử dụng Tailwind CSS. Đảm bảo bạn đã cài đặt và cấu hình Tailwind CSS trong project của bạn.
+All components are built with mobile-first responsive design:
+- Mobile: Optimized for small screens
+- Tablet: Enhanced layout for medium screens
+- Desktop: Full-featured layout for large screens
 
-## License
+## 🌐 Localization
 
-MIT
+Currently supports Vietnamese language. The library includes:
+- Vietnamese text for all UI elements
+- Vietnamese number formatting (VNĐ currency)
+- Vietnamese date/time formatting
 
-## Đóng góp
+## 🤝 Contributing
 
-Mọi đóng góp đều được chào đón! Hãy tạo issue hoặc pull request.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## Liên hệ
+## 📄 License
 
-Nếu có câu hỏi hoặc cần hỗ trợ, hãy tạo issue trên GitHub.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🐛 Issues
+
+If you find any bugs or have feature requests, please open an issue on [GitHub](https://github.com/yourusername/react-shopping-cart-library/issues).
+
+## 📞 Support
+
+For support, email your-email@example.com or create an issue on GitHub.
+
+---
+
+Made with ❤️ by [Your Name](https://github.com/yourusername)
