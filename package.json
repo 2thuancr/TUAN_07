@@ -1,5 +1,5 @@
 {
-  "name": "react-shopping-cart-library",
+  "name": "@2thuancr/react-shopping-cart",
   "version": "1.0.0",
   "description": "A React library for shopping cart functionality with reusable UI components",
   "type": "module",
@@ -23,7 +23,7 @@
     "ui-components",
     "typescript"
   ],
-  "author": "Student Name",
+  "author": "2thuancr",
   "license": "MIT",
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -53,10 +53,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/student/react-shopping-cart-library.git"
+    "url": "https://github.com/2thuancr/react-shopping-cart-library.git"
   },
   "bugs": {
-    "url": "https://github.com/student/react-shopping-cart-library/issues"
+    "url": "https://github.com/2thuancr/react-shopping-cart-library/issues"
   },
-  "homepage": "https://github.com/student/react-shopping-cart-library#readme"
+  "homepage": "https://github.com/2thuancr/react-shopping-cart-library#readme"
 }
